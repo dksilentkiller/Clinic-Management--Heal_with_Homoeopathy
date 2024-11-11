@@ -1,0 +1,374 @@
+{% extends 'doc_panel.html' %}
+
+{% block doc_panel %}
+
+<div class="row mt-4">
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card text-white bg-primary">
+            <div class="card-body">
+                <h5 class="card-title">Today's Patients</h5>
+                <p class="card-text">231</p>
+                <p class="card-text">18% Higher Than Last Month</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card text-white bg-danger">
+            <div class="card-body">
+                <h5 class="card-title">Appointments</h5>
+                <p class="card-text">122</p>
+                <p class="card-text">21% Higher Than Last Month</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card text-white bg-success">
+            <div class="card-body">
+                <h5 class="card-title">Today's Operations</h5>
+                <p class="card-text">28</p>
+                <p class="card-text">37% Higher Than Last Month</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card text-white bg-warning">
+            <div class="card-body">
+                <h5 class="card-title">Online Appointment</h5>
+                <p class="card-text">42</p>
+                <p class="card-text">10% Higher Than Last Month</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-8 mb-4">
+        <div class="card">
+            <div class="card-header">Patients Survey</div>
+            <div class="card-body">
+                <!-- Placeholder for chart -->
+                <canvas id="patientsChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 mb-4">
+        <div class="card">
+            <div class="card-header">Appointment Review</div>
+            <div class="card-body">
+                <div id="appointmentPieChart"></div>
+                <button class="btn btn-primary mt-3">Modify Availability</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-8 mb-4">
+        <div class="card">
+            <div class="card-header">Today's Appointment</div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Patient Name</th>
+                            <th>Gender</th>
+                            <th>Last Visit</th>
+                            <th>Diseases</th>
+                            <th>Report</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>John Doe</td>
+                            <td>Male</td>
+                            <td>12/05/2016</td>
+                            <td><span class="badge badge-danger">Fever</span></td>
+                            <td><i class="fa fa-file"></i></td>
+                            <td><a href="#" class="btn btn-sm btn-primary">Details</a></td>
+                        </tr>
+                        <!-- Add more rows as needed -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 mb-4">
+        <div class="card">
+            <div class="card-header">Patients Group</div>
+            <div class="card-body">
+                <ul class="list-group">
+                    <li class="list-group-item">Cholesterol - 5 Patients</li>
+                    <li class="list-group-item">Diabetic - 14 Patients</li>
+                    <li class="list-group-item">Low Blood Pressure - 10 Patients</li>
+                    <li class="list-group-item">Hypertension - 21 Patients</li>
+                    <li class="list-group-item">Malaria - 11 Patients</li>
+                    <li class="list-group-item">Dental Problem - 17 Patients</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <!-- To-do List -->
+    <div class="col-lg-4 mb-4">
+        <div class="card">
+            <div class="card-header">Todo List</div>
+            <div class="card-body">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <input type="checkbox" class="form-check-input me-2" checked disabled>
+                        Check patient report
+                        <span class="badge bg-danger">High</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <input type="checkbox" class="form-check-input me-2">
+                        Request for festive holiday
+                        <span class="badge bg-danger">High</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <input type="checkbox" class="form-check-input me-2">
+                        Order new medicine stock
+                        <span class="badge bg-success">Low</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <input type="checkbox" class="form-check-input me-2" checked disabled>
+                        Remind for lunch in hotel
+                        <span class="badge bg-secondary">Normal</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <input type="checkbox" class="form-check-input me-2">
+                        Conference in London
+                        <span class="badge bg-danger">High</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Doctors List -->
+    <div class="col-lg-4 mb-4">
+        <div class="card">
+            <div class="card-header">Doctors List</div>
+            <div class="card-body">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Dr. Jay Soni (MBBS, MD)
+                        <span class="badge bg-success">Available</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Dr. Sarah Smith (BDS, MDS)
+                        <span class="badge bg-danger">Absent</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Dr. Megha Trivedi (BHMS)
+                        <span class="badge bg-success">Available</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Dr. John Deo (MBBS, MS)
+                        <span class="badge bg-success">Available</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Dr. Jacob Ryan (MBBS, MD)
+                        <span class="badge bg-danger">Absent</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Number of Patients Chart -->
+    <div class="col-lg-4 mb-4">
+        <div class="card">
+            <div class="card-header">Number of Patients</div>
+            <div class="card-body">
+                <canvas id="patientsChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('patientsChart').getContext('2d');
+    const patientsChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+            datasets: [
+                {
+                    label: 'Male',
+                    data: [60, 70, 65, 85, 55, 75],
+                    backgroundColor: 'rgba(54, 162, 235, 0.6)'
+                },
+                {
+                    label: 'Female',
+                    data: [80, 90, 85, 110, 70, 100],
+                    backgroundColor: 'rgba(255, 99, 132, 0.6)'
+                }
+            ]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
+
+<!--  -->
+<!-- <section>
+    
+    <div class="card mt-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5>Booked Appointment List</h5>
+            <div class="btn-group">
+                <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    Tools
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Print</a></li>
+                    <li><a class="dropdown-item" href="#">Save as PDF</a></li>
+                    <li><a class="dropdown-item" href="#">Export to Excel</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="card-body">
+            <button class="btn btn-primary mb-3">Add New +</button>
+    
+          
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <input type="text" id="patientFilter" class="form-control" placeholder="Filter by Patient Name">
+                </div>
+                <div class="col-md-3">
+                    <input type="text" id="doctorFilter" class="form-control" placeholder="Filter by Doctor Name">
+                </div>
+                <div class="col-md-3">
+                    <input type="date" id="dateFilter" class="form-control" placeholder="Filter by Date">
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-secondary" onclick="clearFilters()">Clear Filters</button>
+                </div>
+            </div>
+    
+            <table class="table table-bordered" id="appointmentTable">
+                <thead class="table-light">
+                    <tr>
+                        <th><input type="checkbox"></th>
+                        <th>Patient Name</th>
+                        <th>Assigned Doctor</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>Jayesh Patel</td>
+                        <td><a href="#">Dr. Rajesh</a></td>
+                        <td>12/05/2016</td>
+                        <td>10:45</td>
+                        <td>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Actions
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Delete</a></li>
+                                    <li><a class="dropdown-item" href="#">Cancel</a></li>
+                                    <li><a class="dropdown-item" href="#">Postpone</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>Pooja Patel</td>
+                        <td><a href="#">Dr. Sarah Smith</a></td>
+                        <td>12/05/2016</td>
+                        <td>10:55</td>
+                        <td>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Actions
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Delete</a></li>
+                                    <li><a class="dropdown-item" href="#">Cancel</a></li>
+                                    <li><a class="dropdown-item" href="#">Postpone</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // JavaScript for filtering the table
+        document.getElementById('patientFilter').addEventListener('input', filterTable);
+        document.getElementById('doctorFilter').addEventListener('input', filterTable);
+        document.getElementById('dateFilter').addEventListener('input', filterTable);
+    
+        function filterTable() {
+            const patientInput = document.getElementById('patientFilter').value.toLowerCase();
+            const doctorInput = document.getElementById('doctorFilter').value.toLowerCase();
+            const dateInput = document.getElementById('dateFilter').value;
+    
+            const rows = document.querySelectorAll('#appointmentTable tbody tr');
+            rows.forEach(row => {
+                const patientName = row.cells[1].textContent.toLowerCase();
+                const doctorName = row.cells[2].textContent.toLowerCase();
+                const date = row.cells[3].textContent;
+    
+                const patientMatch = patientName.includes(patientInput);
+                const doctorMatch = doctorName.includes(doctorInput);
+                const dateMatch = dateInput ? date === dateInput : true;
+    
+                if (patientMatch && doctorMatch && dateMatch) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+    
+        function clearFilters() {
+            document.getElementById('patientFilter').value = '';
+            document.getElementById('doctorFilter').value = '';
+            document.getElementById('dateFilter').value = '';
+            filterTable();
+        }
+    </script>
+    
+</section> -->
+<!--  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

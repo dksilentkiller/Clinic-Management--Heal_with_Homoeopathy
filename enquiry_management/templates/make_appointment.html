@@ -1,0 +1,260 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+
+<section class="appointment-form py-3 m-3 position-relative">
+  <video autoplay muted loop playsinline class="bg-video" style="border-radius: 10px;">
+    <source src="{% static 'videos/enqbg.mp4' %}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="overlay"></div>
+
+  <div class="container position-relative" style="z-index: 1;">
+    <div class="row justify-content-center m-0 p-0">
+      <div class="col-lg-6 p-4 form-content shadow-lg rounded" style="background-color: #ffffff9f;">
+        <h2 class="text-center mb-4" style="font-family: 'Poppins', sans-serif; color: #0d6efd;">Book Your Appointment</h2>
+        <form id="appointmentForm" method="post">
+          {% csrf_token %}
+          <!-- Form fields -->
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="age" class="form-label">Age</label>
+                <input type="number" class="form-control" id="age" name="age" placeholder="Enter your age" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="gender" class="form-label">Gender</label>
+                <select class="form-control" id="gender" name="gender" required>
+                  <option value="" disabled selected>Select your gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter your phone number" pattern="[0-9]{10}" maxlength="10" required>
+                <div class="invalid-feedback">Please enter a valid 10-digit phone number.</div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="state" class="form-label">State</label>
+                <select class="form-control" id="state" name="state" required>
+                  <option value="" disabled selected>Select your state</option>
+                  <option value="Andhra Pradesh">Andhra Pradesh</option>
+                  <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                  <option value="Assam">Assam</option>
+                  <option value="Bihar">Bihar</option>
+                  <option value="Chhattisgarh">Chhattisgarh</option>
+                  <option value="Goa">Goa</option>
+                  <option value="Gujarat">Gujarat</option>
+                  <option value="Haryana">Haryana</option>
+                  <option value="Himachal Pradesh">Himachal Pradesh</option>
+                  <option value="Jharkhand">Jharkhand</option>
+                  <option value="Karnataka">Karnataka</option>
+                  <option value="Kerala">Kerala</option>
+                  <option value="Madhya Pradesh">Madhya Pradesh</option>
+                  <option value="Maharashtra">Maharashtra</option>
+                  <option value="Manipur">Manipur</option>
+                  <option value="Meghalaya">Meghalaya</option>
+                  <option value="Mizoram">Mizoram</option>
+                  <option value="Nagaland">Nagaland</option>
+                  <option value="Odisha">Odisha</option>
+                  <option value="Punjab">Punjab</option>
+                  <option value="Rajasthan">Rajasthan</option>
+                  <option value="Sikkim">Sikkim</option>
+                  <option value="Tamil Nadu">Tamil Nadu</option>
+                  <option value="Telangana">Telangana</option>
+                  <option value="Tripura">Tripura</option>
+                  <option value="Uttar Pradesh">Uttar Pradesh</option>
+                  <option value="Uttarakhand">Uttarakhand</option>
+                  <option value="West Bengal">West Bengal</option>
+                  <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                  <option value="Chandigarh">Chandigarh</option>
+                  <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+                  <option value="Daman and Diu">Daman and Diu</option>
+                  <option value="Lakshadweep">Lakshadweep</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="Puducherry">Puducherry</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="city" class="form-label">City</label>
+                <input type="text" class="form-control" id="city" name="city" placeholder="Enter your city" required>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="disease" class="form-label">Disease</label>
+                <input type="text" class="form-control" id="disease" name="disease" placeholder="Describe your symptoms or condition">
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="appointmentDate" class="form-label">Appointment Date</label>
+                <input type="date" class="form-control" id="appointmentDate" name="appointmentDate" required>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="mb-3">
+            <label for="message" class="form-label">Message (if any)</label>
+            <textarea class="form-control" id="message" name="message" rows="3" placeholder="Any additional information"></textarea>
+          </div>
+
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">Submit Appointment</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .bg-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+      border-radius: 10px;
+    }
+
+    .form-content {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 30px;
+      border-radius: 15px;
+    }
+
+    .btn-primary {
+      margin-top: 5px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 50px;
+      color: #ffffff;
+      background-color: #0d6efd;
+      border: 1px solid;
+      transition: background-color 0.5s, color 0.5s;
+    }
+
+    .btn-primary:hover {
+      background-color: #ffffff;
+      color: #007bff;
+      border: 1px solid #007bff;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #4CAF50;
+      box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+    }
+
+    label {
+      font-weight: 600;
+    }
+  </style>
+
+</section>
+
+
+<!-- confirmation modal -->
+
+
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="successModalLabel">Appointment Booked Successfully</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Thank you! Your appointment has been successfully submitted.</p>
+        <p>We will contact you shortly with further details.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="okButton">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Include Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // JavaScript/jQuery to handle form submission and show modal
+    $(document).ready(function() {
+        $('#appointmentForm').on('submit', function(event) {
+            event.preventDefault();  // Prevent default form submission
+            
+            // Perform AJAX POST request to submit the form data
+            $.ajax({
+                type: 'POST',
+                url: '{% url "make_appointment" %}',  // Update with your actual URL for handling form submission
+                data: $(this).serialize(),
+                success: function(response) {
+                    // Show success modal upon successful submission
+                    $('#successModal').modal('show');
+                    // Optionally reset the form after submission
+                    $('#appointmentForm')[0].reset();
+                },
+                error: function(xhr, status, error) {
+                    // Handle errors
+                    alert('There was an error processing your appointment. Please try again.');
+                }
+            });
+        });
+
+        // Redirect to home page after modal is dismissed
+        $('#okButton').on('click', function() {
+            window.location.href = "{% url 'home' %}";  // Replace with the correct URL for home page
+        });
+    });
+</script>
+
+{% endblock %}

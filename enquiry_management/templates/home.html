@@ -1,0 +1,1493 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+
+
+<!-- Carousel Slides -->
+<section id="home" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2000">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'images/mainslider (1).jpg' %}" class="d-block w-100 carousel-image" alt="Slider_image_1">
+      <div
+        style="background-color: rgba(0, 0, 0, 0.65); position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
+      </div>
+      <div class="carousel-caption" data-aos="fade-up">
+        <h1 class="glow d-none d-md-block">Heal with Homoeopathy</h1>
+        <p>Your Health, Our Priority</p>
+        <button class="book_appointment_btn btn" onclick="location.href='{% url 'make_appointment' %}'">
+          <b>Book Appointment</b>
+        </button>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/mainslider (2).jpg' %}" class="d-block w-100 carousel-image" alt="Slider_image_2">
+      <div
+        style="background-color: rgba(0, 0, 0, 0.65); position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
+      </div>
+      <div class="carousel-caption">
+        <h1 class="glow d-none d-md-block">Heal with Homoeopathy</h1>
+        <p>Your Health, Our Priority</p>
+        <button class="book_appointment_btn btn" onclick="location.href='{% url 'make_appointment' %}'">
+          <b>Book Appointment</b>
+        </button>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/mainslider (3).jpg' %}" class="d-block w-100 carousel-image" alt="Slider_image_3">
+      <div
+        style="background-color: rgba(0, 0, 0, 0.65); position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
+      </div>
+      <div class="carousel-caption">
+        <h1 class="glow d-none d-md-block">Heal with Homoeopathy</h1>
+        <p>Your Health, Our Priority</p>
+        <button class="book_appointment_btn btn" onclick="location.href='{% url 'make_appointment' %}'">
+          <b>Book Appointment</b>
+        </button>
+        <!-- <button href="{% url 'make_appointment' %}" class="book_appointment_btn btn"><b>Book Appointment</b></button> -->
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .carousel-image {
+      height: 70vh;
+      object-fit: cover;
+    }
+
+    .carousel-caption {
+      z-index: 10;
+      bottom: 30%;
+    }
+
+    .carousel-caption h1 {
+      font-size: 4rem;
+      font-weight: bold;
+      font-style: italic;
+      font-family: 'Georgia Pro', sans-serif;
+      transition: transform 0.4s ease;
+    }
+
+    /* Hover effect for h1 */
+    /* .carousel-caption h1.glow:hover {
+      transform: scale(1.1);
+      text-shadow: 0 0 20px rgb(0, 255, 0), 0 0 30px rgb(0, 255, 0), 0 0 40px rgb(0, 255, 0);
+    } */
+
+    .carousel-caption p {
+      font-size: 2.2rem;
+      font-family: Nunito Sans;
+    }
+
+    .book_appointment_btn {
+      margin-top: 5px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 50px;
+      color: #ffffff;
+      background-color: #0d6efd;
+      border: 1px solid;
+      transition: background-color 0.5s, color 0.5s;
+    }
+
+    .book_appointment_btn:hover {
+      background-color: #ffffff;
+      color: #007bff;
+      border: 1px solid #007bff;
+    }
+
+    /* Smooth transition without blinking */
+    .carousel-fade .carousel-item {
+      display: block;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+    }
+
+    .carousel-fade .carousel-item.active {
+      opacity: 1;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .carousel-caption h1 {
+        font-size: 2rem;
+        /* Smaller font size for mobile */
+      }
+
+      .carousel-caption p {
+        font-size: 2rem;
+        /* Smaller font size for mobile */
+      }
+
+      .carousel-image {
+        height: 50vh;
+        /* Adjust height for mobile */
+      }
+    }
+  </style>
+</section>
+<!-- Carousel Slides -->
+
+
+<!-- services-section -->
+<section id="services-section" class="services-section">
+  <div class="container" style="margin-top: -130px; z-index: 100; position: relative;">
+    <div class="row">
+      <div class="col-md-3 col-sm-6 service-card" data-aos="fade-right">
+        <div class="icon">
+          <i class="fa-solid fa-user-doctor"></i>
+        </div>
+        <h3>Qualified Doctors</h3>
+        <p>Our experienced doctors ensure the best care for your health and well-being.</p>
+      </div>
+
+      <div class="col-md-3 col-sm-6 service-card" data-aos="fade-down">
+        <div class="icon">
+          <i class="fa-solid fa-truck-medical"></i>
+        </div>
+        <h3>Emergency Care</h3>
+        <p>Immediate care is available 24/7 for critical medical situations.</p>
+      </div>
+
+      <div class="col-md-3 col-sm-6 service-card" data-aos="fade-down">
+        <div class="icon">
+          <i class="fa-solid fa-cloud-sun"></i>
+        </div>
+        <h3>Outdoor Checkup</h3>
+        <p>Comprehensive health checkup services at your convenience and your Home.</p>
+      </div>
+
+      <div class="col-md-3 col-sm-6 service-card" data-aos="fade-left">
+        <div class="icon">
+          <i class="fa-solid fa-clock"></i>
+        </div>
+        <h3>24 Hours Service</h3>
+        <p>Round-the-clock services for any health concerns, ensuring full-time care.</p>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .services-section {
+      padding: 50px 15px;
+      position: relative;
+      z-index: 100;
+    }
+
+    .service-card {
+      background-color: #0d6efd;
+      text-align: center;
+      padding: 20px;
+      border: 1px solid #ffffff;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      width: 24.5%;
+      margin: 0 auto 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    }
+
+    .service-card .icon {
+      font-size: 2.5rem;
+      color: #ffffff;
+      margin: 0 auto 15px;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    .service-card h3 {
+      color: #ffffff;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .service-card p {
+      color: #ffffff;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* Hover effect */
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      background: linear-gradient(45deg, #0d6efd, #0056b3);
+    }
+
+    .service-card:hover .icon {
+      transform: scale(1.2);
+    }
+
+    .service-card:hover h3 {
+      transform: scale(1.1);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .service-card {
+        width: 49%;
+        padding: 5px;
+      }
+
+      .service-card h3 {
+        font-size: 1.2rem;
+      }
+
+      .service-card p {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+
+      /* Two-column grid on small screens (mobile) */
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .service-card {
+        width: 48%;
+        margin: 1%;
+      }
+
+      .service-card h3 {
+        font-size: 1rem;
+      }
+
+      .service-card p {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</section>
+<!-- services-section -->
+
+
+<!-- About Us Section -->
+<section class="about_us container px-4 py-3">
+  <div class="section-header text-center mb-5">
+    <h5 class="section-title" data-aos="zoom-in">Welcome to <span
+        style="color: #06bd03; font-family: 'Georgia Pro', sans-serif;">Heal with
+        Homoeopathy</span></h5>
+    <h6 class="section-subtitle" data-aos="zoom-in">Holistic Care for Your Well-Being</h6>
+  </div>
+
+  <div class="row align-items-center">
+    <div class="col-md-6 mt-0">
+      <div class="video-container">
+        <video class="img-fluid" autoplay loop muted>
+          <source src="{% static 'videos/about_us2.mp4' %}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+    <div class="col-md-6 text-section">
+      <p class="lead" data-aos="zoom-in">
+        "At Heal with Homoeopathy, we believe in nurturing the body's natural healing power through gentle
+        and effective remedies. Our compassionate practitioners focus on treating the root causes of ailments,
+        offering personalized care that is safe, natural, and tailored to your unique health needs."
+      </p>
+      <p class="text-dark" data-aos="zoom-in">Let us guide you on a journey toward optimal health and wellness with the
+        time-tested
+        principles of homoeopathy.</p>
+
+      <ul class="list-checkmark">
+        <li data-aos="zoom-in">&nbsp;Personalized treatment for holistic wellness.</li>
+        <li data-aos="zoom-in">&nbsp;Gentle, natural remedies with no side effects.</li>
+        <li data-aos="zoom-in">&nbsp;Focused on addressing root causes, not just symptoms.</li>
+      </ul>
+
+      <div class="text-center mt-4" data-aos="zoom-in">
+        <a href="#" class="learn_more_btn btn">Learn More &nbsp;<i class="fa-solid fa-angle-right"></i></a>
+      </div>
+    </div>
+  </div>
+
+
+  <style>
+    .section-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #333;
+    }
+
+    .video-container {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+
+    .video-container video {
+      border-radius: 10px;
+    }
+
+    .text-section p.lead {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .list-checkmark {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 30px;
+    }
+
+    .list-checkmark li {
+      padding-left: 30px;
+      position: relative;
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    .list-checkmark li:before {
+      content: '✔ ';
+      position: absolute;
+      left: 0;
+      color: #0d6efd;
+    }
+
+    .learn_more_btn {
+      padding: 12px 25px;
+      border-radius: 50px;
+      color: #fff;
+      background-color: #0d6efd;
+    }
+
+    .learn_more_btn:hover {
+      border: 1px solid #0d6efd;
+      color: #0d6efd;
+      background-color: white;
+    }
+  </style>
+</section>
+<!-- About Us Section -->
+
+
+
+<!-- Your Health is Our Priority -->
+<section id="hero-section" class="d-flex align-items-center justify-content-center position-relative"
+  data-aos="zoom-in">
+  <!-- Background Video -->
+  <video autoplay muted loop id="heroVideo" class="position-absolute w-100 h-100">
+    <source src="{% static 'videos/healthcare.mp4' %}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Text content -->
+  <div class="container text-center position-relative">
+    <h1 class="text-light" data-aos="zoom-in">Your Health is Our Priority</h1>
+    <p class="lead text-light" data-aos="zoom-in"><b>Step into a realm where holistic healing thrives, ensuring your
+        path to wellness.</b>
+    </p>
+    <a href="{% url 'make_appointment' %}" class="btn btn-primary"><b>Make An Appointment</b></a>
+  </div>
+
+  <style>
+    #hero-section {
+      padding: 50px;
+      height: 40vh;
+      /* Height can be adjusted based on design */
+      position: relative;
+      color: white;
+      overflow: hidden;
+      /* Prevents overflow of content */
+    }
+
+    /* Video styles */
+    #heroVideo {
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    #hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      /* Semi-black overlay */
+      z-index: 1;
+      /* Overlay above video */
+    }
+
+    #hero-section .container {
+      position: relative;
+      /* Ensure container is above the overlay */
+      z-index: 2;
+      /* Text and button above everything */
+    }
+
+    #hero-section h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      /* Spacing below heading */
+    }
+
+    #hero-section p {
+      font-size: 1.25rem;
+      margin-bottom: 20px;
+      /* Spacing below paragraph */
+    }
+
+    #hero-section .btn-primary {
+      margin-top: 5px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 50px;
+      color: #ffffff;
+      background-color: #0d6efd;
+      border: 1px solid;
+      transition: background-color 0.5s, color 0.5s;
+    }
+
+    #hero-section .btn-primary:hover {
+      background-color: #ffffff;
+      color: #007bff;
+      border: 1px solid;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      #hero-section {
+        padding: 30px;
+        /* Reduced padding on smaller screens */
+      }
+
+      #hero-section h1 {
+        font-size: 2.5rem;
+        /* Adjust heading size */
+      }
+
+      #hero-section p {
+        font-size: 1.1rem;
+        /* Adjust paragraph size */
+      }
+
+
+    }
+
+    @media (max-width: 576px) {
+      #hero-section {
+        padding: 20px;
+        /* Further reduce padding for small screens */
+      }
+
+      #hero-section h1 {
+        font-size: 2rem;
+        /* Further adjust heading size */
+      }
+
+      #hero-section p {
+        font-size: 1rem;
+        /* Further adjust paragraph size */
+      }
+    }
+  </style>
+</section>
+<!-- Your Health is Our Priority -->
+
+
+
+<!-- departments -->
+<section id="departments" class="departments-grid py-5">
+  <div class="container">
+    <div class="row mb-2">
+      <div class="col text-center" data-aos="zoom-in">
+        <h2 class="section-title text-primary" data-aos="zoom-in">Our Specialized Treatments</h2>
+        <p class="section-subtitle" data-aos="zoom-in">Comprehensive care for a wide range of conditions</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4 mt-2 d-none d-md-block" data-aos="zoom-in">
+        <div class="video">
+          <video class="img-fluid" autoplay muted loop>
+            <source src="{% static 'videos/departments.mp4' %}" type="video/mp4">
+            <!-- Your browser does not support the video tag. -->
+          </video>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="row">
+          <div class="col-md-4 col-sm-6 mb-4" data-aos="zoom-in">
+            <div class="department-tile text-center">
+              <i class="fas fa-male fa-2x mb-3"></i>
+              <h5>Erectile Dysfunction</h5>
+              <p>Treatment for ED using advanced homeopathic care.</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 mb-4" data-aos="zoom-in">
+            <div class="department-tile text-center">
+              <i class="fas fa-female fa-2x mb-3"></i>
+              <h5>PCOS/PCOD</h5>
+              <p>Comprehensive care for PCOS and PCOD-related symptoms.</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 mb-4" data-aos="zoom-in">
+            <div class="department-tile text-center">
+              <i class="fas fa-burn fa-2x mb-3"></i>
+              <h5>Acidity</h5>
+              <p>Effective treatment for recurring acidity issues.</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 mb-4" data-aos="zoom-in">
+            <div class="department-tile text-center">
+              <i class="fas fa-cut fa-2x mb-3"></i>
+              <h5>Hair Fall Problem</h5>
+              <p>Homeopathy solutions for hair fall and regrowth.</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 mb-4" data-aos="zoom-in">
+            <div class="department-tile text-center">
+              <i class="fas fa-virus fa-2x mb-3"></i>
+              <h5>Warts</h5>
+              <p>Safe and painless wart removal techniques.</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 mb-4" data-aos="zoom-in">
+            <div class="department-tile text-center">
+              <i class="fas fa-baby fa-2x mb-3"></i>
+              <h5>Trouble Conceiving / Infertility</h5>
+              <p>Fertility treatments for individuals or couples.</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 mb-4" data-aos="zoom-in">
+            <div class="department-tile text-center">
+              <i class="fas fa-female fa-2x mb-3"></i>
+              <h5>Ovarian Cysts</h5>
+              <p>Treatment for managing ovarian cysts effectively.</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 mb-4" data-aos="zoom-in">
+            <div class="department-tile text-center">
+              <i class="fas fa-calendar-times fa-2x mb-3"></i>
+              <h5>Irregular / Missed Periods</h5>
+              <p>Homeopathic remedies for menstrual irregularities.</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 mb-4" data-aos="zoom-in">
+            <div class="department-tile text-center">
+              <i class="fas fa-heartbeat fa-2x mb-3"></i>
+              <h5>Cardiology</h5>
+              <p>Heart health management and treatments.</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 mb-4 d-md-none" data-aos="zoom-in">
+            <div class="department-tile text-center">
+              <i class="fa-solid fa-circle-chevron-down fa-2x mb-3"></i>
+              <h5>More</h5>
+              <p>Know More</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CSS for section and styling -->
+  <style>
+    .section-title {
+      font-size: 32px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .section-subtitle {
+      font-size: 16px;
+      color: #666;
+      margin-top: 10px;
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      /* 16:9 Aspect Ratio */
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
+    }
+
+    .video-container video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 5px;
+    }
+
+    .department-tile {
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #eaeaea;
+      border-radius: 5px;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      /* Added initial shadow */
+    }
+
+    .department-tile:hover {
+      background-color: #007bff;
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      /* Expanded shadow on hover */
+    }
+
+    .department-tile:hover i,
+    .department-tile:hover h5,
+    .department-tile:hover p {
+      color: #fff;
+    }
+
+    .department-tile i {
+      color: #007bff;
+      transition: color 0.3s ease;
+    }
+
+    .department-tile h5 {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+      transition: color 0.3s ease;
+    }
+
+    .department-tile p {
+      color: #666;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+
+    /* Media query to show 2 departments at a time on mobile */
+    @media (max-width: 576px) {
+      .department-tile {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</section>
+<!-- departments -->
+
+
+
+
+<!-- testimonials -->
+<section id="testimonials" class="py-5 position-relative" data-aos="zoom-in">
+  <div class="video-overlay"></div>
+  <video autoplay loop muted class="bg-video">
+    <source src="{% static 'videos/testimonials.mp4' %}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="container text-center position-relative">
+    <h2 class="text-white" data-aos="zoom-in">Our Patients Say About Us</h2>
+    <p class="text-white" data-aos="zoom-in">Separated they live in. A small river named Duden flows by their place and
+      supplies it with the necessary regelialia.</p>
+
+    <div id="testimonialCarousel" class="carousel slide pt-3" data-bs-ride="carousel" data-bs-interval="3000"
+      style="background-color: #00000027; border-radius: 50px;">
+      <div class="carousel-inner">
+
+        <div class="carousel-item active">
+          <div class="row justify-content-center">
+            <div class="col-md-8" data-aos="slide-right"> <!-- Slide-in animation for the first card -->
+              <img src="{% static 'images/testimonials1.jpg' %}" alt="Ravi Sharma" class="testimonial-image mx-auto">
+              <p class="testimonial-text"><span class="quote-icon">“</span>The care I received was beyond expectations.
+                The doctors were thorough and compassionate.<span class="quote-icon">”</span></p>
+              <p class="testimonial-name">Ravi Sharma</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="row justify-content-center">
+            <div class="col-md-8" data-aos="slide-right"> <!-- Slide-in animation for the second card -->
+              <img src="{% static 'images/testimonials2.jpg' %}" alt="Priya Mehta" class="testimonial-image mx-auto">
+              <p class="testimonial-text"><span class="quote-icon">“</span>Excellent staff and service! They made sure I
+                was comfortable throughout.<span class="quote-icon">”</span></p>
+              <p class="testimonial-name">Priya Mehta</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="row justify-content-center">
+            <div class="col-md-8" data-aos="slide-right"> <!-- Slide-in animation for the third card -->
+              <img src="{% static 'images/testimonials3.jpg' %}" alt="Amit Verma" class="testimonial-image mx-auto">
+              <p class="testimonial-text"><span class="quote-icon">“</span>The whole process was seamless, and the staff
+                was very professional.<span class="quote-icon">”</span></p>
+              <p class="testimonial-name">Amit Verma</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="row justify-content-center">
+            <div class="col-md-8" data-aos="slide-right"> <!-- Slide-in animation for the fourth card -->
+              <img src="{% static 'images/testimonials4.jpg' %}" alt="Neha Patel" class="testimonial-image mx-auto">
+              <p class="testimonial-text"><span class="quote-icon">“</span>Very kind and helpful doctors. They truly
+                care about their patients.<span class="quote-icon">”</span></p>
+              <p class="testimonial-name">Laxmi Patel</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="row justify-content-center">
+            <div class="col-md-8" data-aos="slide-right"> <!-- Slide-in animation for the fifth card -->
+              <img src="{% static 'images/testimonials5.jpg' %}" alt="Vikram Singh" class="testimonial-image mx-auto">
+              <p class="testimonial-text"><span class="quote-icon">“</span>Highly satisfied with the service and
+                treatment I received. They were attentive and thorough.<span class="quote-icon">”</span></p>
+              <p class="testimonial-name">Vikram Singh</p>
+            </div>
+          </div>
+        </div>
+        <!-- Add more testimonials as needed -->
+      </div>
+
+      <!-- Carousel Controls -->
+      <button class="carousel-control-prev d-none d-md-block" type="button" data-bs-target="#testimonialCarousel"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next d-none d-md-block" type="button" data-bs-target="#testimonialCarousel"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
+  <style>
+    #testimonials {
+      position: relative;
+      overflow: hidden;
+      color: white;
+    }
+
+    /* Video background styles */
+    .bg-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    /* Semi-black overlay */
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      /* Slightly darkened overlay */
+      z-index: 1;
+    }
+
+    /* Text and content styles */
+    .container.text-center {
+      position: relative;
+      z-index: 2;
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      font-size: 1.1rem;
+      color: white;
+    }
+
+    .testimonial-name {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-top: 10px;
+      color: white;
+    }
+
+    .quote-icon {
+      font-size: 2rem;
+      color: #007bff;
+    }
+
+    .carousel-indicators [data-bs-target] {
+      background-color: #007bff;
+    }
+
+    .testimonial-image {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+  </style>
+</section>
+<!-- testimonials -->
+
+
+
+<!-- FAQ -->
+<section id="faq" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-5" data-aos="zoom-in">Frequently Asked Questions</h2>
+    <div class="accordion" id="faqAccordion">
+
+      <!-- Question 1 -->
+      <div class="card faq-card mb-1" data-aos="zoom-in">
+        <div class="card-header" id="headingOne">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne"
+              aria-expanded="false" aria-controls="collapseOne">
+              What services does your clinic offer?
+            </button>
+          </h5>
+        </div>
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#faqAccordion">
+          <div class="card-body">
+            Our clinic provides a wide range of services, including neurology, cardiology, dental care, ophthalmology,
+            and surgical treatments. We also offer diagnostic services and wellness programs.
+          </div>
+        </div>
+      </div>
+      <!-- Question 2 -->
+      <div class="card faq-card mb-1" data-aos="zoom-in">
+        <div class="card-header" id="headingTwo">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
+              aria-expanded="false" aria-controls="collapseTwo">
+              How can I book an appointment?
+            </button>
+          </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
+          <div class="card-body">
+            You can easily book an appointment by visiting our website and using the "Book an Appointment" form.
+            Alternatively, you can call our clinic directly, and our staff will assist you in scheduling an appointment.
+          </div>
+        </div>
+      </div>
+      <!-- Question 3 -->
+      <div class="card faq-card mb-1" data-aos="zoom-in">
+        <div class="card-header" id="headingThree">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree"
+              aria-expanded="false" aria-controls="collapseThree">
+              Do you accept insurance plans?
+            </button>
+          </h5>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqAccordion">
+          <div class="card-body">
+            Yes, we accept a wide variety of insurance plans. Please contact our front desk to confirm whether we accept
+            your specific insurance provider.
+          </div>
+        </div>
+      </div>
+      <!-- Question 4 -->
+      <div class="card faq-card mb-1" data-aos="zoom-in">
+        <div class="card-header" id="headingFour">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour"
+              aria-expanded="false" aria-controls="collapseFour">
+              What are your clinic hours?
+            </button>
+          </h5>
+        </div>
+        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#faqAccordion">
+          <div class="card-body">
+            Our clinic is open Monday to Friday from 8:00 AM to 6:00 PM, and Saturdays from 9:00 AM to 3:00 PM. We are
+            closed on Sundays.
+          </div>
+        </div>
+      </div>
+      <!-- Question 5 -->
+      <div class="card faq-card mb-1" data-aos="zoom-in">
+        <div class="card-header" id="headingFive">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive"
+              aria-expanded="false" aria-controls="collapseFive">
+              Do you offer emergency services?
+            </button>
+          </h5>
+        </div>
+        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#faqAccordion">
+          <div class="card-body">
+            Yes, we offer 24/7 emergency services. If you are experiencing a medical emergency, please call our
+            emergency hotline or visit the nearest hospital immediately.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    /* General Styles */
+    .card-header {
+      background-color: #f8f9fa;
+      border-bottom: 1px solid #dee2e6;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .btn-link {
+      font-size: 18px;
+      color: #007bff;
+      text-decoration: none;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .btn-link:hover {
+      color: #0056b3;
+    }
+
+    .card-body {
+      font-size: 16px;
+      color: #333;
+      background-color: #fff;
+    }
+
+    /* Hover Effect on Card */
+    .faq-card:hover {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transform: scale(1.02);
+      transition: all 0.3s ease-in-out;
+    }
+
+    /* Card Width Reduction */
+    @media (min-width: 768px) {
+      .faq-card {
+        max-width: 700px;
+        margin: 0 auto;
+      }
+    }
+
+    /* Extra Spacing for Text */
+    .card-body {
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    /* Accordion Header Hover */
+    .card-header:hover {
+      background-color: #e9ecef;
+    }
+
+    /* Header Styling */
+    #faq h2 {
+      font-weight: bold;
+      color: #007bff;
+      margin-bottom: 50px;
+    }
+  </style>
+
+  <!-- Add jQuery and Bootstrap for the accordion functionality -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</section>
+<!-- FAQ -->
+
+
+
+<!-- Contact with bg video -->
+<section class="container-fluid p-0">
+  <div class="video-background-container position-relative">
+    <div class="row position-relative">
+
+      <!-- Emergency Contact Section with video background -->
+      <div class="col-md-6 p-5 text-center emergency-contact position-relative" data-aos="zoom-in">
+        <div class="video-overlay"></div>
+        <video autoplay loop muted class="bg-video">
+          <source src="{% static 'videos/contact_us (1).mp4' %}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <h3 class="text-white" data-aos="zoom-in">For Any Emergency Contact</h3>
+        <p class="text-white" data-aos="zoom-in">We are here to help when you need it the most.</p>
+        <a href="tel:+916306008818" class="btn btn-outline-light Emergency_contact_btn" data-aos="zoom-in"
+          aria-label="Emergency Contact">
+          <i class="fa-solid fa-phone"></i> +91 6306008818
+        </a>
+      </div>
+
+      <!-- Online Appointment Section with video background -->
+      <div class="col-md-6 p-5 text-center online-appointment position-relative" data-aos="zoom-in">
+        <div class="video-overlay"></div>
+        <video autoplay loop muted class="bg-video">
+          <source src="{% static 'videos/contact_us (2).mp4' %}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <h3 class="text-white" data-aos="zoom-in">Make an Online Appointment</h3>
+        <p class="text-white" data-aos="zoom-in">Book your consultation with just a click.</p>
+        <a href="{% url 'make_appointment' %}" class="btn btn-outline-light Emergency_contact_btn" data-aos="zoom-in">
+          <i class="fa-solid fa-calendar-check"></i> Make An Appointment
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .video-background-container {
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Video background styles */
+    .bg-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    /* Semi-black overlay */
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      /* Semi-black layer */
+      z-index: 1;
+    }
+
+    /* Text styling */
+    .col-md-6 h3,
+    .col-md-6 p,
+    .Emergency_contact_btn {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Button styling */
+    .Emergency_contact_btn {
+      border-radius: 50px;
+      padding: 10px 30px;
+      border: 2px solid white;
+      background-color: #007bff;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .Emergency_contact_btn:hover {
+      background-color: #ffffff;
+      color: #007bff;
+      border: 1px solid #007bff;
+    }
+
+    .btn-outline-light {
+      padding: 10px 30px;
+    }
+  </style>
+</section>
+<!-- Contact with bg video -->
+
+
+
+<!-- marquee -->
+<section class="marquee-section p-3" data-aos="zoom-in">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-12">
+        <div class="marquee-content">
+          <p class="marquee-text pt-2">
+            Welcome to <strong>Heal With Homoeopathy</strong> - Your path to natural healing | Specialized treatments
+            for
+            <i class="fas fa-heartbeat text-danger"></i> <strong>Erectile Dysfunction</strong>,
+            <i class="fas fa-female text-pink"></i> <strong>PCOS</strong>,
+            <i class="fas fa-hair text-warning"></i> <strong>Hair Fall</strong>,
+            <i class="fas fa-stomach text-success"></i> <strong>Acidity</strong>, and more! |
+            <a href="{% url 'make_appointment' %}" class="btn btn-primary btn-sm marquee-cta">Book Your Appointment Today</a>
+            and take the first step towards better health!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .marquee-section {
+      border-radius: 10px;
+      padding: 15px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .marquee-content {
+      white-space: nowrap;
+      display: inline-block;
+      animation: marquee 25s linear infinite;
+      padding-right: 50px;
+      /* Additional space for smooth looping */
+    }
+
+    .marquee-text {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #0056b3;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .marquee-cta {
+      background-color: #0056b3;
+      color: white;
+      font-weight: bold;
+      margin-left: 15px;
+      text-transform: uppercase;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Icon and text spacing */
+    .marquee-text i {
+      margin: 0 5px;
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(100%);
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    /* Hover pause for better user interaction */
+    .marquee-content:hover {
+      animation-play-state: paused;
+    }
+  </style>
+
+  <!-- Font Awesome CDN for icons (add in <head> section) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</section>
+<!-- marquee -->
+
+
+<!-- Feedback Section -->
+<section class="feedback-section">
+  <div class="container">
+    <h2 class="text-center my-4 font-weight-bold" style="color: #007bff;">
+      Patient Feedback
+      <a href="#" class="feedback-prompt" data-toggle="modal" data-target="#feedbackModal"
+        style="color: #007bff; font-size: 16px; margin-left: 10px;">Give us your valuable feedback!</a>
+    </h2>
+
+    <div class="feedback-container">
+      <div class="row">
+        {% for feedback in feedbacks %}
+        <div class="col-md-4 mb-3"> <!-- Bootstrap grid column for 3 cards per row -->
+          <div class="feedback-card card shadow-sm">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-2">
+                <img src="https://via.placeholder.com/40" alt="Patient DP" class="rounded-circle mr-2">
+                <!-- Dummy Patient DP -->
+                <h4 class="card-title mb-0" style="color: #007bff;">&nbsp; {{ feedback.patient_name|title }}
+                  <span class="stars">
+                    {% for star in "*****" %}
+                    <i class="star {% if forloop.counter <= feedback.rating %}filled{% endif %}">★</i>
+                    {% endfor %}
+                  </span>
+                </h4>
+              </div>
+              <p class="card-text" style="font-size: 14px; color: #555;">{{ feedback.comments }}</p>
+
+              <!-- Display feedback media -->
+              <div class="feedback-media d-flex flex-wrap">
+                {% for media in feedback.media.all %}
+                <div class="media-item mb-2 mr-2">
+                  <a href="#" data-toggle="modal" data-target="#mediaModal{{ feedback.id }}{{ forloop.counter }}">
+                    {% if media.media_type == 'image' %}
+                    <img src="{{ media.media_file.url }}" alt="Feedback Image" class="img-fluid"
+                      style="max-height: 150px; border-radius: 5px;">
+                    {% elif media.media_type == 'video' %}
+                    <video class="video-responsive" controls style="max-height: 150px;">
+                      <source src="{{ media.media_file.url }}" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                    {% endif %}
+                  </a>
+
+                  <!-- Modal for media view -->
+                  <div class="modal fade" id="mediaModal{{ feedback.id }}{{ forloop.counter }}" tabindex="-1"
+                    role="dialog" aria-labelledby="mediaModalLabel{{ feedback.id }}{{ forloop.counter }}"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="mediaModalLabel{{ feedback.id }}{{ forloop.counter }}">Media View
+                          </h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          {% if media.media_type == 'image' %}
+                          <img src="{{ media.media_file.url }}" alt="Feedback Image" class="img-fluid">
+                          {% elif media.media_type == 'video' %}
+                          <video class="video-responsive" controls style="width: 100%;">
+                            <source src="{{ media.media_file.url }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+
+              <p class="text-muted" style="font-size: 12px;"><small>Submitted on {{ feedback.created_at }}</small></p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="text-center my-4">
+      <button type="button" class="btn btn-primary feedback-btn" data-toggle="modal" data-target="#feedbackModal">Give
+        Precious Feedback</button>
+    </div>
+
+    <!-- Feedback Modal -->
+    <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="feedbackModalLabel" style="color: #007bff;">Give Your Precious Feedback</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="{% url 'feedback' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="patient_name" class="form-label">Your Name:</label>
+                    <input type="text" name="patient_name" class="form-control" placeholder="Enter your name" required>
+                </div>
+        
+                <div class="form-group">
+                    <label for="rating" class="form-label">Rating:</label>
+                    <div class="star-rating">
+                        <input type="radio" id="star5" name="rating" value="5" required>
+                        <label for="star5" class="star">★</label>
+                        <input type="radio" id="star4" name="rating" value="4">
+                        <label for="star4" class="star">★</label>
+                        <input type="radio" id="star3" name="rating" value="3">
+                        <label for="star3" class="star">★</label>
+                        <input type="radio" id="star2" name="rating" value="2">
+                        <label for="star2" class="star">★</label>
+                        <input type="radio" id="star1" name="rating" value="1">
+                        <label for="star1" class="star">★</label>
+                    </div>
+                </div>
+        
+                <div class="form-group">
+                    <label for="comments" class="form-label">Comments:</label>
+                    <textarea name="comments" class="form-control" rows="5" placeholder="Share your experience" required></textarea>
+                </div>
+        
+                <div class="form-group">
+                    <label for="media_files" class="form-label">Upload Images or Videos (optional):</label>
+                    <input type="file" name="media_files" class="form-control-file" multiple accept="image/*,video/*">
+                </div>
+        
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg">Submit Feedback</button>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Additional CSS for UI Enhancements -->
+        <style>
+            .form-label {
+                font-weight: bold;
+                color: #333;
+            }
+        
+            .form-control {
+                border-radius: 10px;
+                border: 1px solid #ccc;
+                padding: 10px;
+                font-size: 1rem;
+                background-color: #f9f9f9;
+            }
+        
+            .form-control:focus {
+                border-color: #0d6efd;
+                box-shadow: 0 0 10px rgba(13, 110, 253, 0.2);
+            }
+        
+            /* Star Rating Styling */
+            .star-rating {
+              align-items: center;
+                direction: rtl;
+                display: flex;
+                justify-content: flex-start;
+                gap: 10px;
+                font-size: 2rem;
+            }
+        
+            .star-rating input[type="radio"] {
+                display: none;
+            }
+        
+            .star-rating label {
+                color: #ccc; /* Default gray color */
+                cursor: pointer;
+                transition: color 0.2s;
+            }
+        
+            /* When a star is checked, apply gold color to all stars before it */
+            .star-rating input[type="radio"]:checked ~ label,
+            .star-rating label:hover,
+            .star-rating label:hover ~ label {
+                color: #ffd700; /* Gold color */
+            }
+        
+            .btn-primary {
+                background-color: #0d6efd;
+                border: none;
+                padding: 10px 20px;
+                font-size: 1.1rem;
+                border-radius: 50px;
+                transition: background-color 0.3s;
+            }
+        
+            .btn-primary:hover {
+                background-color: #0056b3;
+            }
+        
+            .form-control-file {
+                padding: 10px;
+                border: 1px dashed #ccc;
+                border-radius: 10px;
+                background-color: #f8f8f8;
+            }
+        </style>
+        
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .feedback-section {
+      background-color: #f8f9fa;
+      /* Light background for contrast */
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .feedback-container {
+      max-height: 300px;
+      /* Set fixed height for the container */
+      overflow-y: auto;
+      /* Enable vertical scrolling when content exceeds height */
+      overflow-x: hidden;
+      /* Remove horizontal scroll bar */
+    }
+
+    .feedback-card {
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+      /* Removed hover effect */
+    }
+
+    .feedback-media {
+      margin-top: 10px;
+    }
+
+    .media-item img,
+    .media-item video {
+      border-radius: 5px;
+    }
+
+    .stars {
+      display: inline-block;
+    }
+
+    .star {
+      color: #e0e0e0;
+      /* Default gray color for stars */
+      font-size: 1.5rem;
+      /* Adjust size as needed */
+    }
+
+    .star.filled {
+      color: #ffc107;
+      /* Yellow color for filled stars */
+    }
+
+    .star-rating input {
+      display: none;
+    }
+
+    .star-rating label {
+      color: grey;
+      font-size: 20px;
+      padding: 5px;
+      cursor: default;
+      /* Remove pointer cursor */
+    }
+
+    .star-rating input:checked~label {
+      color: gold;
+
+    }
+
+    /* Removed all hover effects */
+    .feedback-prompt {
+      text-decoration: none;
+      /* Remove underline from the link */
+      color: #007bff;
+      /* Keep the link color the same */
+    }
+
+    .feedback-btn {
+      border-radius: 50px;
+      padding: 10px 30px;
+      border: 1px solid white;
+      background-color: #007bff;
+    }
+
+    .feedback-btn:hover {
+      background-color: white;
+      color: #007bff;
+    }
+  </style>
+</section>
+<!-- End of Feedback Section -->
+
+
+{% endblock body %}

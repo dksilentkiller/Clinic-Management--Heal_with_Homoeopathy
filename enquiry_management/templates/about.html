@@ -1,0 +1,288 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<!-- headder -->
+<section class="heading py-4">
+  <video autoplay muted loop class="bg-video">
+    <source src="{% static 'videos/bg-about-us.mp4' %}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1 class="text-white">About Us</h1>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .heading {
+      position: relative;
+      padding: 80px 0;
+      overflow: hidden;
+    }
+
+    .bg-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 0.6; /* Optional: Adjust opacity to darken the video */
+    }
+
+    .heading::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Add a dark overlay for readability */
+      z-index: 1;
+    }
+
+    h1 {
+      position: relative;
+      font-size: 3rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin: 0;
+      z-index: 2; /* Keep the text above the video and overlay */
+    }
+  </style>
+</section>
+<!-- headder -->
+
+<!-- About Us Section -->
+<section class="about_us container p-5">
+  <div class="section-header text-center mb-5">
+    <h5 class="section-title" data-aos="zoom-in">Welcome to <span style="color: #06bd03; font-family: 'Georgia Pro', sans-serif;">Heal with
+        Homoeopathy</span></h5>
+    <h6 class="section-subtitle" data-aos="zoom-in">Holistic Care for Your Well-Being</h6>
+  </div>
+
+  <div class="row align-items-center">
+    <div class="col-md-6 mt-0">
+      <div class="video-container">
+        <video class="img-fluid" autoplay loop muted>
+          <source src="{% static 'videos/about_us2.mp4' %}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+    <div class="col-md-6 text-section">
+      <p class="lead" data-aos="zoom-in">
+        "At Heal with Homoeopathy, we believe in nurturing the body's natural healing power through gentle
+        and effective remedies. Our compassionate practitioners focus on treating the root causes of ailments,
+        offering personalized care that is safe, natural, and tailored to your unique health needs."
+      </p>
+      <p class="text-dark" data-aos="zoom-in">Let us guide you on a journey toward optimal health and wellness with the time-tested
+        principles of homoeopathy.</p>
+
+      <ul class="list-checkmark">
+        <li data-aos="zoom-in">&nbsp;Personalized treatment for holistic wellness.</li>
+        <li data-aos="zoom-in">&nbsp;Gentle, natural remedies with no side effects.</li>
+        <li data-aos="zoom-in">&nbsp;Focused on addressing root causes, not just symptoms.</li>
+      </ul>
+
+      <div class="text-center mt-4" data-aos="zoom-in">
+        <a href="#" class="learn_more_btn btn">Learn More &nbsp;<i class="fa-solid fa-angle-right"></i></a>
+      </div>
+    </div>
+  </div>
+
+ 
+  <style>
+
+    .section-subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #333;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .video-container {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+
+    .video-container video {
+      border-radius: 10px;
+    }
+
+    .text-section p.lead {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #333;
+      margin-bottom: 20px;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .list-checkmark {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 30px;
+    }
+
+    .list-checkmark li {
+      padding-left: 30px;
+      position: relative;
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    .list-checkmark li:before {
+      content: '✔ ';
+      position: absolute;
+      left: 0;
+      color: #0d6efd;
+    }
+
+    .learn_more_btn {
+      padding: 12px 25px;
+      border-radius: 50px;
+      color: #fff;
+      background-color: #0d6efd;
+    }
+
+    .learn_more_btn:hover {
+      border: 1px solid #0d6efd;
+      color: #0d6efd;
+      background-color: white;
+    }
+  </style>
+</section>
+<!-- About Us Section -->
+
+
+<!-- Mission Section -->
+<section class="about-section py-4">
+  <div class="container">
+    <div class="row text-center">
+      <!-- Our Mission Box -->
+      <div class="col-md-3 col-sm-6 mb-3" data-aos="zoom-in">
+        <div class="about-card">
+          <div class="icon-wrapper">
+            <i class="fas fa-bullseye"></i>
+          </div>
+          <h5 class="my-3">Our Mission</h5>
+          <p>To provide high-quality health services that improve the well-being of our community.</p>
+        </div>
+      </div>
+
+      <!-- Our Vision Box -->
+      <div class="col-md-3 col-sm-6 mb-3" data-aos="zoom-in">
+        <div class="about-card">
+          <div class="icon-wrapper">
+            <i class="fas fa-eye"></i>
+          </div>
+          <h5 class="my-3">Our Vision</h5>
+          <p>To be a leader in health services, committed to excellence and compassionate care.</p>
+        </div>
+      </div>
+
+      <!-- Our Values Box -->
+      <div class="col-md-3 col-sm-6 mb-3" data-aos="zoom-in">
+        <div class="about-card">
+          <div class="icon-wrapper">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h5 class="my-3">Our Values</h5>
+          <p>Integrity, Excellence, Compassion, Innovation.</p>
+        </div>
+      </div>
+
+      <!-- New Box: Our Commitment -->
+      <div class="col-md-3 col-sm-6 mb-3" data-aos="zoom-in">
+        <div class="about-card">
+          <div class="icon-wrapper">
+            <i class="fas fa-hands-helping"></i>
+          </div>
+          <h5 class="my-3">Our Commitment</h5>
+          <p>We are committed to delivering personalized and compassionate care.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .about-section {
+      background-color: #f8f9fa;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #0d6efd;
+      margin-bottom: 20px;
+    }
+
+    .about-card {
+      background: #0d6efd;
+      padding: 10px; /* Reduced padding */
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      height: 200px; /* Reduced height */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .about-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .icon-wrapper {
+      font-size: 2rem; /* Reduced icon size */
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    h5 {
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    p {
+      font-size: 0.8rem; /* Reduced paragraph font size */
+      color: #ffffff;
+    }
+
+    @media (max-width: 767px) {
+      .about-card {
+        height: auto;
+        padding: 8px;
+        margin-bottom: 20px;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .icon-wrapper {
+        font-size: 1.8rem;
+      }
+
+      p {
+        font-size: 0.75rem;
+      }
+    }
+  </style>
+</section>
+<!-- End Mission Section -->
+
+
+{% endblock %}

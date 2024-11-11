@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<div class="wrapper m-3 rounded" style="background-image: url('{% static 'images/login4.jpg' %}'); background-size: cover; background-position: center; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px;">
+    <div class="inner">
+        <div class="image-holder">
+            <img src="{% static 'images/doctor_icon.png' %}" alt="Doctor Icon">
+        </div>
+        <h3 class="text-center mb-4">Doctor Login</h3>
+        <form method="post" action="{% url 'doctor_login' %}">
+            {% csrf_token %}
+            
+            {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endif %}
+            
+            <div class="mb-3">
+                <label for="contact" class="form-label">User ID or Mobile No.</label>
+                <input type="text" class="form-control" id="contact" name="contact" placeholder="Enter your email or phone number" required aria-label="Contact" pattern="([a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$|[0-9]{10})" title="Please enter a valid email address or a 10-digit phone number">
+            </div>
+            <div class="mb-3 position-relative">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required aria-label="Password">
+                <button type="button" class="btn btn-outline-secondary position-absolute" id="togglePassword" style="right: 10px; top: 38px;">
+                    <i class="bi bi-eye" id="eyeIcon"></i>
+                </button>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary w-100">
+                    Login
+                </button>
+            </div>
+            <div class="text-center mt-3">
+                <a href="#">Forgot Password?</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Include Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Bootstrap Icons (for the eye icon) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+<style>
+    .wrapper {
+        position: relative;
+        z-index: 1;
+    }
+
+    .inner {
+        background: rgba(0, 0, 0, 0.7); /* Darken the background for better contrast */
+        border-radius: 20px;
+        padding: 40px;
+        max-width: 400px;
+        width: 100%;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .image-holder {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .image-holder img {
+        width: 90px;
+        height: auto;
+        animation: rotateIn 1.2s ease;
+    }
+
+    h3 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.8rem;
+        color: #ffffff;
+        letter-spacing: 1px;
+        font-weight: 600;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Increased shadow for better readability */
+    }
+
+    .form-label {
+        font-weight: 500;
+        font-family: 'Poppins', sans-serif;
+        color: #ffffff;
+        font-size: 1rem;
+    }
+
+    .form-control {
+        padding: 12px 15px;
+        font-family: 'Poppins', sans-serif;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        background: rgba(255, 255, 255, 0.2); /* Slightly lighter background for input fields */
+        color: #ffffff;
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+        font-size: 0.95rem;
+    }
+
+    .btn-primary {
+        margin-top: 5px;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border-radius: 50px;
+        color: #ffffff;
+        background-color: #0d6efd;
+        border: 1px solid;
+        transition: background-color 0.5s, color 0.5s;
+    }
+
+    .btn-primary:hover {
+        background-color: #ffffff;
+        color: #0d6efd;
+        border: 1px solid #0d6efd;
+    }
+
+    input:focus {
+        outline: none;
+        border-color: #6A82FB;
+        box-shadow: 0 0 8px rgba(106, 130, 251, 0.8);
+    }
+
+    .text-center a {
+        color: #ffffff;
+        font-size: 0.9rem;
+        text-decoration: underline;
+        transition: color 0.3s ease;
+    }
+
+    .text-center a:hover {
+        color: #6A82FB;
+    }
+
+    @keyframes rotateIn {
+        from {
+            transform: rotate(-360deg);
+            opacity: 0;
+        }
+        to {
+            transform: rotate(0);
+            opacity: 1;
+        }
+    }
+</style>
+
+<script>
+    document.getElementById('togglePassword').addEventListener('click', function() {
+        const passwordInput = document.getElementById('password');
+        const eyeIcon = document.getElementById('eyeIcon');
+        
+        // Toggle the type attribute
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        
+        // Toggle the eye icon
+        eyeIcon.classList.toggle('bi-eye');
+        eyeIcon.classList.toggle('bi-eye-slash');
+    });
+</script>
+
+{% endblock %}
